@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chu vi hình tròn</title>
+</head>
+<body>
+<p id="banKinh"></p>
+<p id="duongKinh"></p>
+<p id="chuVi1" style="color: brown"></p>
+<p id="chuVi2" style="color: brown"></p>
+
+<script>
+    if (confirm("Thông tin muốn nhập là bán kính?")) {
+        let r = Number(prompt("Mời nhập bán kính hình tròn: "));
+        const PI = 3.14;
+        let result1 = 2 * PI * r; //công thức tính
+        document.getElementById("banKinh").innerHTML = "Đường kính là: " + r;
+        document.getElementById("chuVi1").innerHTML = "Chu vi hình tròn là: " + result1.toFixed(2);
+    } else {
+        let d = Number(prompt("Mời nhập đường kính hình tròn: "));
+        const PI = 3.14;
+        let result2 = PI * d; //công thức tính
+        document.getElementById("duongKinh").innerHTML = "Đường kính là: " + d;
+        document.getElementById("chuVi2").innerHTML = "Chu vi hình tròn là: " + result2.toFixed(2);
+    }
+</script>
+</body>
+</html>
