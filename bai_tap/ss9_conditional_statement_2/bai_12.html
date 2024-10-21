@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lãi suất ngân hàng</title>
+</head>
+<body>
+
+<script>
+    //số tiền vay ban đầu
+    //số tháng cho vay: 12 tháng (const)
+    //lãi suất hàng tháng: 1% (const)
+    //lãi suất hằng tháng nếu trễ hạn:
+    //1-3 tháng: lãi ban đầu + 5%
+    //4-6 tháng: lãi ban đầu + 10%
+    //7-9 tháng: lãi ban đầu + 15%
+    //10-12 tháng: lãi ban đầu + 20%
+    //số tiền gốc phải trả hằng tháng = số tiền vay ban đầu/12 (1)
+    //số tiền lãi phải trả hằng tháng = (số tiền vay ban đầu*lãi suất)/12 (2)
+    //Số tiền phải trả hằng tháng (không trễ hạn): (1) + (2) = (3)
+    //Số tiền phải trả hằng tháng (có trễ hạn): (3) + (số tiền vay ban đầu*(lãi suất + lãi suất trễ hạn))/12
+
+    const LAISUAT = 0.01;
+    let soTien = +prompt("Nhập số tiền vay:");
+    let month = +prompt("Nhập số tháng trễ hạn")
+    let laiTrehan1 = LAISUAT + 0.05;
+    let laiTrehan2 = LAISUAT + 0.075;
+    let laiTrehan3 = LAISUAT + 0.1;
+    let laiTrehan4 = LAISUAT + 0.15;
+
+    //kết quả nếu trả đúng hạn
+    let dungHan = soTien / 12 + (soTien * LAISUAT) / 12;
+    console.log(dungHan);
+
+    //kết quả nếu trả trễ hạn
+    let treHan1 = dungHan + (soTien * (LAISUAT + laiTrehan1)) / 12;
+    let treHan2 = dungHan + (soTien * (LAISUAT + laiTrehan2)) / 12;
+    let treHan3 = dungHan + (soTien * (LAISUAT + laiTrehan3)) / 12;
+    let treHan4 = dungHan + (soTien * (LAISUAT + laiTrehan4)) / 12;
+
+    console.log(treHan1);
+    console.log(treHan2);
+    console.log(treHan3);
+    console.log(treHan4);
+
+
+    switch (month) {
+        case 1:
+        case 2:
+        case 3:
+            document.write("Số tiền phải trả là: " + new Intl.NumberFormat("en-US").format(treHan1.toFixed(2)) + "vnđ");
+            break;
+        case 4:
+        case 5:
+        case 6:
+            document.write("Số tiền phải trả là: " + new Intl.NumberFormat("en-US").format(treHan2.toFixed(2)) + "vnđ");
+            break;
+        case 7:
+        case 8:
+        case 9:
+            document.write("Số tiền phải trả là: " + new Intl.NumberFormat("en-US").format(treHan3.toFixed(2)) + "vnđ");
+            break;
+        case 10:
+        case 11:
+        case 12:
+            document.write("Số tiền phải trả là: " + new Intl.NumberFormat("en-US").format(treHan4.toFixed(2)) + "vnđ");
+            break;
+        default:
+            document.write("Số tiền phải trả là: " + new Intl.NumberFormat("en-US").format(dungHan.toFixed(2)) + "vnđ");
+    }
+
+</script>
+</body>
+</html>

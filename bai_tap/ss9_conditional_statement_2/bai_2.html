@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi đơn vị</title>
+</head>
+<body>
+<script>
+
+    //chuyển đổi mét sang feet
+    //ft =m * 3.2808
+    //Chuyển mét sang feet
+    //°C  x  9/5 + 32 = °F
+    //Idea: Người dùng nhập 1 dữ liệu thông qua lệnh promt =>
+    // phát sinh 1 số trường hợp nhập sai giá trị thay vì nhâp number thì nhập text hoặc vừa text vừa number
+    // dùng if - else trả KQ.
+
+    let met = prompt("Nhập giá trị: ");
+    let feet = Number(met * 3.2808);
+
+    if (!isNaN(feet)) {
+        document.write("Kết quả chuyển đổi là: " + feet.toFixed(4));
+    } else {
+        alert("Giá trị nhập vào không phải là số. Vui lòng nhập lại!!!");
+    }
+
+</script>
+</body>
+</html>

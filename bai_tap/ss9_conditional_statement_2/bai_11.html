@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thuế thu nhập cá nhân</title>
+</head>
+<body>
+
+<script>
+    //công thức tính thu nhập tính thuế: tổng lương - giảm trừ bản thân (const) - giảm trừ người phụ thuộc
+    //điều kiện:
+    // 1. Thu nhập trên 11TR => tính thuế TNCN
+    // 2. Tiền giảm trừ người phụ thuộc = số lượng ng phụ thuộc * 4TR4
+    // 3. Tiền giảm trừ bản thân luôn luôn là 11TR
+    // 4. Ví dụ 3 bậc: dựa theo thu nhập tính thuế * lãi suât
+    // Bậc 1: thu nhập tính thuế 0-5TR => thuế TNCN = thu nhập tính thuế * lãi suất (5%)
+    // Bậc 2: thu nhập tính thuế 5-10TR => thuế TNCN = thu nhập tính thuế * lãi suất (10%)
+    // Bậc 3: thu nhập tính thuế >10TR => thuế TNCN = thu nhập tính thuế * lãi suất (15%)
+
+    const CANHAN = 11000000;
+    const PHUTHUOC = 4400000;
+
+    // thuế suất theo bậc
+    const BAC1 = 0.05;
+    const BAC2 = 0.1;
+    const BAC3 = 0.15;
+
+    // thu nhập tính thuế theo bậc
+    const MUC1 = 5000000;
+    const MUC2 = 10000000;
+
+    let luong = +prompt("Tổng tiền lương mỗi tháng: ");
+    let soNguoi = +prompt("Nhập số lượng người phụ thuộc:")
+
+    let thue = luong - CANHAN - soNguoi * PHUTHUOC;
+    console.log(thue);
+    let result1 = thue * BAC1;
+    let result2 = (thue - MUC1) * BAC2 + MUC1 * BAC1;
+    let result3 = (thue - MUC2) * BAC3 + MUC1 * BAC1 + (MUC2 - MUC1) * BAC2;
+    console.log((thue - MUC2) * BAC3);
+    console.log(result3);
+
+    if (luong > 11000000) {
+        if (thue > 10000000) {
+            document.write("Thuế TNCN cần phải đóng tháng này là: " + new Intl.NumberFormat("en-US").format(result3.toFixed(2)) + "vnđ");
+        } else if (thue > 5000000) {
+            document.write("Thuế TNCN cần phải đóng tháng này là: " + new Intl.NumberFormat("en-US").format(result2.toFixed(2)) + "vnđ");
+        } else if (thue > 0) {
+            document.write("Thuế TNCN cần phải đóng tháng này là: " + new Intl.NumberFormat("en-US").format(result1.toFixed(2)) + "vnđ");
+        } else {
+            document.write("Thuế TNCN cần phải đóng tháng này là: 0VNĐ ");
+        }
+    } else {
+        document.write("Thuế TNCN cần phải đóng tháng này là: 0vnđ ");
+    }
+
+</script>
+</body>
+</html>
