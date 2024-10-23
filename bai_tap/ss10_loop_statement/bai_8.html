@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Game "Hãy thử đoán xem" </title>
+</head>
+<body>
+
+<!--Giao diện có 1 nút Button "Chơi"-->
+
+<button id="play">Chơi</button>
+
+<script>
+
+    // Mô tả ứng dụng: Khi người dùng nhấn vào button “Chơi”:
+    //
+    // Ứng dụng hiển thị cửa sổ prompt cho phép người dùng nhập vào muốn đoán trong khoảng nào
+    // Ứng dụng chọn ra số ngẫu nhiên trong khoảng mà ngườI dùng chọn
+    // Ứng dụng hiển thị cửa số prompt cho người dùng nhập giá trị mà người dùng đoán
+    // Ứng dụng lấy kết quả và so sánh với giá trị ngẫu nhiên.
+    // Nếu bằng thì hiển thị thông báo chúc mừng và kết thúc lượt chơi
+    // Nếu lớn hơn hoặc bé thua thì hiển thị thông báo lớn hơn hay bé thua và cho phép người dùng lựa chọn lại.
+    //
+    // let nhap = +prompt("Mời nhập khoảng muốn đoán");
+    // let guess = +prompt("Số bạn đoán là:");
+
+    function playGame() {
+        // Nhập khoảng giá trị
+        const min = +prompt("Nhập giá trị nhỏ nhất:");
+        const max = +prompt("Nhập giá trị lớn nhất:");
+
+        // Sinh số ngẫu nhiên
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        let guess;
+        do {
+            guess = +prompt("Hãy đoán số:");
+            if (guess === randomNumber) {
+                alert("Chúc mừng bạn đã đoán đúng!");
+                break;
+            } else if (guess < randomNumber) {
+                alert("Số bạn đoán nhỏ hơn");
+            } else {
+                alert("Số bạn đoán lớn hơn");
+            }
+        } while (true);
+    }
+
+    // Sự kiện khi nhấn nút "Chơi"
+    const playButton = document.getElementById("play");
+    playButton.addEventListener('click', playGame);
+
+</script>
+
+</body>
+</html>
