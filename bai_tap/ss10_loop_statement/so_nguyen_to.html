@@ -9,22 +9,28 @@
 <script>
 
     //Hiển thị 20 số nguyên tố đầu tiên
-    //điều kiện: N%1 && N%N
 
-    const NUMBER = 20;
     let count = 0;
-    let N = 2;
-    let uoc = 0;
-
-    while (N<NUMBER){
-        for (let i = 2; i < N ; i++) {
-            if(N%i===0 > ){
-                N++
-            } else {
-                console.log(N);
+    let n = 2;
+    while (true) {
+        let isPrime = true;
+        for (let i = 2; i < n; i++) {
+            if (n % i === 0) {
+                isPrime = false;
+                break;
             }
         }
+        if (isPrime) {
+            count++;
+            document.write(n + "<br>");
+        }
+        n++;
+
+        if (count === 20) {
+            break;
+        }
     }
+
 
 </script>
 
