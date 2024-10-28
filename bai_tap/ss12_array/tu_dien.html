@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<h2> Từ điển Anh - Việt </h2>
+
+<label>
+    Nhập từ:
+    <input type="text" name="" id="word">
+</label>
+
+<button onclick="find()">Dịch Anh - Việt</button>
+
+<p id="result"> Gợi ý thử với các từ: "apple","banana","orange","strawberry","blueberry","mango" </p>
+
+<script>
+
+    function find() {
+        let input = document.getElementById("word").value;
+        let engWords = ["apple", "banana", "orange", "strawberry", "blueberry", "mango"];
+        let vnWords = ["táo", "chuối", "cam", "dâu", "việt quất", "xoài"];
+        let result;
+
+        for (let i = 0; i < engWords.length; i++) {
+            if (input === engWords[i]) {
+                let index = engWords.indexOf(input);
+                result = vnWords[index];
+                document.getElementById("result").innerHTML = result;
+                break;
+            } else {
+                document.getElementById("result").innerText = "Không tìm thấy";
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

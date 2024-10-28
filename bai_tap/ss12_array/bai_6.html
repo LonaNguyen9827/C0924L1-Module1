@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V.
+    // Chương trình tìm xem V có nằm trong mảng số nguyên không?
+    // Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".
+
+    //khởi tạo mảng 10 phần tử
+    const N = 10;
+    let array = new Array(N);
+
+
+    //gán mảng
+    for (let i = 0; i < array.length; i++) {
+        array[i] = prompt("Nhập phần tử thứ " + i);
+    }
+    console.log(array);
+
+    //tìm V trong mảng số nguyên
+    let found;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === "V") {
+            found = true;
+            break;
+        }
+    }
+
+    //hiển thị kết quả
+    if (found) {
+        document.write("V is in array");
+    } else {
+        document.write("V is not in array");
+    }
+
+
+</script>
+</body>
+</html>

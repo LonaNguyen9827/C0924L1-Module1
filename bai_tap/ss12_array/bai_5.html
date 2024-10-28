@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Viết chương trình đếm số nguyên âm trong một chuỗi
+
+    let nhapChuoi = prompt("Nhập một chuỗi bất kỳ");
+    let nguyenAm = ["u", "e", "o", "a", "i", "U", "E", "O", "A", "I"];
+    let common = [];
+
+    for (let i = 0; i < nguyenAm.length; i++) {
+        for (let j = 0; j < nhapChuoi.length; j++) {
+            if (nhapChuoi[j] === nguyenAm[i]) {
+                common.push(nhapChuoi[j]);
+            }
+        }
+    }
+
+    for (const commonElement of common) {
+        console.log(commonElement);
+    }
+    console.log("Tổng số nguyên âm có trong chuỗi vừa nhập vào là :" + common.length);
+
+</script>
+</body>
+</html>
