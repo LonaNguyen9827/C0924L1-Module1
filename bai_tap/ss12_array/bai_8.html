@@ -7,23 +7,23 @@
 <body>
 <script>
 
-  //Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử.
-  // Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.
+    //Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử.
+    // Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.
 
-  const N = 10;
-  let array = new Array(N);
+    const N = 10;
+    let array = new Array(N);
 
-  for (let i = 0; i < array.length; i++) {
-      array[i] = +prompt("Nhập số nguyên thứ " + i);
-  }
+    for (let i = 0; i < array.length; i++) {
+        array[i] = +prompt("Nhập số nguyên thứ " + i);
+    }
 
-  document.write("Mảng ban đầu được nhập vào là: " + array + "<br>");
+    document.write("Mảng ban đầu được nhập vào là: " + array + "<br>");
 
-  array.sort(function (a,b){
-      return b -a;
-  });
+    array.sort(function (a, b) {
+        return b - a;
+    });
 
-  document.write("Mảng được xếp theo thứ tự giảm dần là: " + array);
+    document.write("Mảng được xếp theo thứ tự giảm dần là: " + array);
 
 
 </script>
