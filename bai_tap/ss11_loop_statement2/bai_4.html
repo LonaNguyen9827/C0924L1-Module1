@@ -8,19 +8,32 @@
 
 <script>
 
-    let row = 21; //biến j
-    let row2 = 21;//biến i
+    //in dòng đầu tiên
+    for (let i = 1; i <= 1; i++) {
+        for (let j = 1; j <= 21; j++) {
+            document.write("*");
+        }
+    }
+    document.write("<br>");
 
-    for (let i = 1; i <= row ; i++) {
-        for (let j = 1; j <= row2 ; j++) {
-            if(i === 1 || i === row2 || j === 1 || j === row){
+    //in ở giữa
+    for (let i = 1; i <= 5; i++) {
+        for (let j = 1; j <= 21; j++) {
+            if (j === 1 || j === 21) {
                 document.write("*");
-                continue;
-            // } else {
-            //     document.write(" ");
+            } else {
+                document.write("&nbsp;&nbsp;");
             }
+
         }
         document.write("<br>");
+    }
+    
+    //in dòng cuối cùng
+    for (let i = 1; i <= 1; i++) {
+        for (let j = 1; j <= 21; j++) {
+            document.write("*");
+        }
     }
 
 </script>

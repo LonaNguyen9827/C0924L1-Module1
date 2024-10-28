@@ -31,26 +31,18 @@
     }
     document.write("<br>");
 
-    //hinh3
 
-    // for (let i = 1; i <= row; i++) {
-    //     for (let j = row; j >= 1; j--) {
-    //         if (i<=row -j){
-    //             document.write("");
-    //         } else {
-    //             document.write("*")
-    //         }
-    //     }
-    //     document.write("<br>");
-    // }
+    //hinh 3
 
-    for (let i = row; i >= 1 ; i--) {
-        for (let j = row; j >=1 ; j--) {
-            if (j <= row - i) {
-                document.write("");
-            } else {
-                document.write("*")
-            }
+    for (let i = 1; i <= row; i++) {
+        // Vòng lặp để in ra khoảng trắng ở đầu dòng
+        for (let j = 1; j <= row - i; j++) {
+            document.write("&nbsp;&nbsp;"); // Khoảng trắng để dịch dấu * sang phải
+        }
+
+        // Vòng lặp để in ra dấu *
+        for (let k = 1; k <= i; k++) {
+            document.write("*");
         }
         document.write("<br>");
     }
@@ -59,12 +51,19 @@
     //hinh4
 
     for (let i = row; i >= 1; i--) {
-        for (let j = i; j >= 1; j--) {
+        // Vòng lặp để in ra khoảng trắng ở đầu dòng
+        for (let j = row; j > i; j--) {
+            document.write("&nbsp;&nbsp;"); // Khoảng trắng để dịch dấu * sang phải
+        }
+
+        // Vòng lặp để in ra dấu *
+        for (let k = 1; k <= i; k++) {
             document.write("*");
         }
+
         document.write("<br>");
     }
-    document.write("<br>");
+
 
 </script>
 
