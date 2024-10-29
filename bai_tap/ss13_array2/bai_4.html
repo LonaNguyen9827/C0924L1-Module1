@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm ký tự chữ</title>
+</head>
+<body>
+<script>
+
+    // Viết một chương trình để đếm số từ trong một chuỗi
+
+    let n = +prompt("Độ dài của mảng là: ");
+    let array = new Array(n);
+    let count = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        array[i] = prompt("Nhập ký tự bất kỳ thứ: " + i);
+    }
+    console.log(array);
+
+    // đếm số ký tự kiểu string trong mảng vừa tạo
+    let str = [];
+    for (let i = 0; i < array.length; i++) {
+
+        if (isNaN(array[i])) {
+            count++;
+            str.push(array[i]);
+        }
+    }
+    console.log(`Số lượng ký tự trong mảng là: ${count}. Các ký tự lần lượt là: ${str.join()} `);
+
+</script>
+
+</body>
+</html>

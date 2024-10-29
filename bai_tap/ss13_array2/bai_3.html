@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm ký tự số</title>
+</head>
+<body>
+<script>
+
+    //Viết một chương trình khai báo một mảng ký tự và kích thước của mảng.
+    //Chương trình này đếm số ký tự số trong mảng.
+
+    let n = +prompt("Độ dài của mảng là: ");
+    let array = new Array(n);
+    let count = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        array[i] = prompt("Nhập ký tự bất kỳ thứ: " + i);
+    }
+    console.log(array);
+
+    // đếm số ký tự số trong mảng vừa tạo
+    let num = [];
+    for (let i = 0; i < array.length; i++) {
+
+        if (!isNaN(Number(array[i]))) {
+            count++;
+            num.push(array[i]);
+        }
+    }
+    console.log(`Số ký tự là số trong mảng là: ${count}. Các ký tự số lần lượt là: ${num.join()}`)
+
+</script>
+</body>
+</html>

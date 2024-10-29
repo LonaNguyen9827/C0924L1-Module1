@@ -2,30 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tìm số nguyên v trong mảng</title>
 </head>
 <body>
 <script>
 
-    //Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V.
+    //Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử
+    // Nhập/tạo phần tử số nguyên V.
     // Chương trình tìm xem V có nằm trong mảng số nguyên không?
     // Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".
+
+    //tạo phần tử số nguyên V
+    let v = prompt("Nhập phần tử số nguyên v");
+    document.write("Phần tử V là: " + v + "<br>");
 
     //khởi tạo mảng 10 phần tử
     const N = 10;
     let array = new Array(N);
 
-
     //gán mảng
     for (let i = 0; i < array.length; i++) {
         array[i] = prompt("Nhập phần tử thứ " + i);
     }
-    console.log(array);
+    document.write("Mảng vừa nhập vào là: " + array + "<br>");
 
     //tìm V trong mảng số nguyên
     let found;
     for (let i = 0; i < array.length; i++) {
-        if (array[i] === "V") {
+        if (array[i] === v) {
             found = true;
             break;
         }
@@ -33,9 +37,9 @@
 
     //hiển thị kết quả
     if (found) {
-        document.write("V is in array");
+        document.write("Kết quả là: V is in array");
     } else {
-        document.write("V is not in array");
+        document.write("Kết quả là: V is not in array");
     }
 
 

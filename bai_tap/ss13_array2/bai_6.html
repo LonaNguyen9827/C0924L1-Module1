@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thay thế ký tự</title>
+</head>
+<body>
+<script>
+    //Viết chương trình nhập vào một mảng ký tự.
+    //Tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này bởi ký tự ( _ )
+
+    //tạo mảng bất kỳ
+    let n = +prompt("Độ dài của mảng là: ");
+    let array = new Array(n);
+    let count = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        array[i] = prompt("Nhập ký tự bất kỳ thứ: " + i);
+    }
+
+    // biến đổi thành chuỗi để check tất cả các ký tự
+    let str = array.toString();
+    let newStr = [];
+
+    //kiểm tra và thay thế các ký tự
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === "-") {
+            newStr.push("_");
+        } else {
+            newStr.push(str[i]);
+        }
+    }
+
+    console.log(array);
+    console.log(str);
+    console.log("Kết quả là: " + newStr.join(""));
+
+</script>
+</body>
+</html>

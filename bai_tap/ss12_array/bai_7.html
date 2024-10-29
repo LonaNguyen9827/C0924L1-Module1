@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tìm giá trị v và xóa</title>
 </head>
 <body>
 <script>
@@ -11,30 +11,41 @@
     //Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng đã cho xoá V khỏi mảng
     //(Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng của mảng)
 
+    //tạo phần tử số nguyên V
+    let v = prompt("Nhập phần tử số nguyên v");
+    document.write("Phần tử V là: " + v + "<br>");
+
     //khởi tạo mảng 10 phần tử
     const N = 10;
     let array = new Array(N);
-
 
     //gán mảng
     for (let i = 0; i < array.length; i++) {
         array[i] = prompt("Nhập phần tử thứ " + i);
     }
-    console.log("Mảng vừa nhập là: " + array);
+    document.write("Mảng vừa nhập vào là: " + array + "<br>");
 
     // Tìm vị trí của V và xóa
-    let index = array.indexOf("V");
-    if (index !== -1) {
-        // Di chuyển các phần tử bên phải V về trước một vị trí
-        for (let i = index; i < array.length - 1; i++) {
-            array[i] = array[i + 1];
+    let found = false;
+    for (let i = 0; i < array.length; i++) {
+        if (v === array[i]) {
+            for (let j = i; j < array.length - 1; j++) {
+                array[j] = array[j + 1];
+            }
+            array[array.length - 1] = 0;
+            i--;
+            found = true;
         }
-        // Gán 0 cho phần tử cuối cùng
-        array[array.length - 1] = 0;
-        console.log("Mảng sau khi xóa:" + array);
-    } else {
-        console.log("V không tồn tại trong mảng");
     }
+
+    //trả kết quả
+
+    if (found) {
+        document.write("Mảng sau khi xóa là: " + array);
+    } else {
+        document.write("V không tồn tại trong mảng");
+    }
+
 
 </script>
 </body>
