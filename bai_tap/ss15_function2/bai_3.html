@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tính giai thừa</title>
+  </head>
+  <body>
+    <!-- giao diện -->
+    <h1>Tính giai thừa của một số</h1>
+    <label
+      >Nhập giá trị:
+      <input type="number" id="number" placeholder="Nhập số" />
+      <button onclick="tinhGT()">Tính giai thừa</button>
+    </label>
+    <p id="result"></p>
+
+    <script>
+      //Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.
+      //định nghĩa n!:là tích các số từ 1 đến n
+      //giai thừa không có giá trị âm, giai thừa của 0 = 1
+
+      function tinhGiaiThua(num) {
+        let result = 1;
+        if (num < 0) {
+          return `NaN`;
+        }
+        if (num === 0 || num === 1) {
+          return 1;
+        }
+
+        if (num > 1) {
+          for (let i = num; i >= 1; i--) {
+            result *= i;
+          }
+          return result;
+        }
+      }
+
+      function tinhGT() {
+        let input = Number(document.getElementById("number").value);
+        document.getElementById(
+          "result"
+        ).innerHTML = `${input}! = ${tinhGiaiThua(input)}`;
+      }
+    </script>
+  </body>
+</html>

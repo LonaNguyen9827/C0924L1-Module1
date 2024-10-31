@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tính chu vi/diện tích</title>
+  </head>
+  <body>
+    <!-- giao diện -->
+    <label
+      >Nhập giá trị:
+      <input type="number" id="input" placeholder="Bán kính hình tròn?" />
+    </label>
+    <p>
+      <button onclick="tinhChuVi()">Tính chu vi</button>
+      <button onclick="tinhDienTich()">Tính diện tích</button>
+    </p>
+    <p id="result"></p>
+
+    <script>
+      const PI = 3.14;
+      function tinhChuVi() {
+        let input = Number(document.getElementById("input").value);
+        document.getElementById("result").innerText = `Chu vi hình tròn là: ${
+          2 * input * PI
+        }`;
+      }
+
+      function tinhDienTich() {
+        let input = Number(document.getElementById("input").value);
+        document.getElementById(
+          "result"
+        ).innerText = `Diện tích hình tròn là: ${input * input * PI}`;
+      }
+    </script>
+  </body>
+</html>

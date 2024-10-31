@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tìm giá trị MIN</title>
+  </head>
+  <body>
+    <h1>Tìm giá trị nhỏ nhất</h1>
+    <script>
+      function isMin(a, b, c) {
+        let min;
+        if (a < b) {
+          if (a < c) {
+            min = a;
+          } else {
+            min = c;
+          }
+        } else if (b < c) {
+          min = b;
+        } else {
+          min = c;
+        }
+        return min;
+      }
+
+      let n1 = +prompt("Nhập số thứ nhất:");
+      let n2 = +prompt("Nhập số thứ hai:");
+      let n3 = +prompt("Nhập số thứ ba:");
+
+      document.write(`Giá trị nhỏ nhất là: ${isMin(n1, n2, n3)}`);
+    </script>
+  </body>
+</html>
