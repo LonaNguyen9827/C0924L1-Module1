@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tăng giá trị của số</title>
+</head>
+<body>
+<label>
+    <input type="number" id="number" placeholder="Mời nhập số bất kỳ">
+    <button onclick="tangGiaTri()">Cộng thêm 1 đơn vị</button>
+</label>
+<p id="result"></p>
+<script>
+
+    function tangGiaTri() {
+        let input = parseInt(document.getElementById("number").value);
+        document.getElementById("result").innerHTML = ++input;
+    }
+
+</script>
+
+</body>
+</html>

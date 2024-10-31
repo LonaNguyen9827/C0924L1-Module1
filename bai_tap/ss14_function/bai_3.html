@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hai tham số</title>
+</head>
+<body>
+<script>
+
+    //Tạo hàm nhận vào hai tham số.
+    //Nếu giá trị của tham số thứ nhất lớn hơn tham số thứ hai, hiển thị hộp thoại thông báo cho người dùng.
+    //Nếu giá trị của tham số thứ nhất nhỏ hơn hoặc bằng tham số thứ hai, trả về tổng của hai tham số.
+
+    function soSanh(n1, n2) {
+        if (n1 > n2) {
+            alert("Số thứ nhất lớn hơn số thứ hai");
+        } else {
+            return document.write(`Tổng của 2 số là: ${n1 + n2}`);
+        }
+    }
+
+    let n1 = +prompt("Mời nhập số thứ nhất");
+    let n2 = +prompt("Mời nhập số thứ hai");
+    soSanh(n1, n2);
+
+</script>
+</body>
+</html>

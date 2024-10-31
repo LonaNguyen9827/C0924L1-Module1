@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi</title>
+</head>
+<body>
+<script>
+
+    // yêu cầu tạo 2 hàm:
+    //function footToMeter(foot) , function meterToFoot(meter)
+
+    //công thức:
+    // meter = 0.305 * foot
+    // foot = 3.279 * meter
+
+    function footToMeter(foot) {
+        return meter = 0.305 * foot;
+    }
+
+    function meterToFoot(meter) {
+        return foot = 3.279 * meter;
+    }
+
+    let inputFeet = +prompt("Mời nhập giá trị feet");
+    let inputMeter = +prompt("Mời nhập giá trị meter");
+
+    document.write("Chuyển đổi Feet sang Meter <br>");
+    document.write(`feet = ${inputFeet.toFixed(1)} => meter = ${footToMeter(inputFeet).toFixed(3)}`);
+
+    document.write("<br> Chuyển đổi Meter sang Feet <br>");
+    document.write(`feet = ${inputMeter.toFixed(1)} => meter = ${meterToFoot(inputMeter).toFixed(3)}`);
+
+
+</script>
+</body>
+</html>

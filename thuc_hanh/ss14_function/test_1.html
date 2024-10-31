@@ -5,16 +5,33 @@
     <title>Title</title>
 </head>
 <body>
+<!-- giao diện -->
+<label
+>Nhập giá trị:
+    <input type="number" id="input" placeholder="Bán kính hình tròn?"/>
+</label>
+<p>
+    <button onclick="tinhChuVi()">Tính chu vi</button>
+    <button onclick="tinhDienTich()">Tính diện tích</button>
+</p>
+<p id="result"></p>
 
 <script>
-    function func1(a) {
-        if (a == 2)
-            return 2;
-        return a * func1(a - 1);
+    const PI = 3.14;
+
+    function tinhChuVi() {
+        let input = Number(document.getElementById("input").value);
+        document.getElementById("result").innerText = `Chu vi hình tròn là: ${
+            2 * input * PI
+        }`;
     }
 
-    console.log(func1(5));
-
+    function tinhDienTich() {
+        let input = Number(document.getElementById("input").value);
+        document.getElementById(
+            "result"
+        ).innerText = `Diện tích hình tròn là: ${input * input * PI}`;
+    }
 </script>
 
 </body>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ngôi sao và chòm sao</title>
+</head>
+<body>
+
+<script>
+
+    let ngoiSao = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let chomSao = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+    let nhap = prompt("Nhập tên ngôi sao");
+    checkName(nhap);
+
+    //hàm kiểm tra tên ngôi sao trả về chòm sao tương ứng
+    function checkName(input) {
+        let found = false;
+        for (let i = 0; i < ngoiSao.length; i++) {
+            if (input === ngoiSao[i]) {
+                found = true;
+                document.write(`Ngôi sao ${ngoiSao[i]} có tên chòm sao là ${chomSao[i]}`);
+                break;
+            }
+        }
+        if (!found) {
+            document.write(`Không tồn tại tên ngôi sao và chòm sao`);
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
