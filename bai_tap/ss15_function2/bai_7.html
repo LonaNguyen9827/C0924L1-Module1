@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đổi vị trí</title>
+  </head>
+  <body>
+    <script>
+      function doiCho(a, b) {
+        let c = a;
+        a = b;
+        b = c;
+        console.log(`Số thứ nhất là: ${a}, số thứ hai là ${b}`);
+      }
+
+      let n1 = +prompt("Nhập số thứ nhất");
+      let n2 = +prompt("Nhập số thứ hai");
+      doiCho(n1, n2);
+    </script>
+  </body>
+</html>
