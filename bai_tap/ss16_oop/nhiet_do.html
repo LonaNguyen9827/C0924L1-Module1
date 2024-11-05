@@ -10,9 +10,6 @@
       //công thức chuyển từ độ C sang độ F là: độ F = (độ C *9/5) + 32
       //công thức chuyển từ độ C sang độ Kenvin là: độ K = dộ C + 273.15
 
-      let doF;
-      let doK;
-
       class Temperature {
         //thuộc tính
         constructor(doC) {
@@ -21,7 +18,7 @@
 
         //phương thức
         getTinhDoF() {
-          return (doF = (this.doC * 9) / 5 + 32);
+          return (this.doC * 9) / 5 + 32;
         }
 
         getTinhDoK() {
