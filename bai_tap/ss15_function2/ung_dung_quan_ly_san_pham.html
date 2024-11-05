@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ứng dụng quản lý sản phẩm</title>
+  </head>
+  <body>
+    <h1>ỨNG DỤNG QUẢN LÝ SẢN PHẨM</h1>
+    <h2>Add new Product</h2>
+    <p>
+      <input id="input" placeholder="New Product" />
+      <button style="background-color: chartreuse" onclick="addProduct()">
+        Add
+      </button>
+    </p>
+
+    <h2>Display all Product</h2>
+
+    <p id="display"></p>
+
+    <!-- code mẫu -->
+    <!-- <table>
+      <tr>
+        <td>Tên sản phẩm</td>
+        <td></td>
+        <td>
+          <button style="background-color: rgb(212, 255, 0)">Chỉnh sửa</button>
+        </td>
+        <td><button style="background-color: orange">Xóa</button></td>
+      </tr>
+    </table> -->
+
+    <script>
+      let productList = [
+        "Sony Xperia",
+        "Samsung Galaxy",
+        "Nokia 6",
+        "Xiaomi Redmi Note 4",
+        "Apple iPhone 6S",
+        "Xiaomi Mi 5s Plus",
+        "Apple iPhone 8 Plus",
+        "Fujitsu F-04E",
+        "Oppo A71",
+      ];
+
+      //tạo function hiển thị bảng trên html
+
+      function displayTable() {
+        let tableString = `<table border = "1">
+      <tr>
+        <td>Tên sản phẩm</td>
+
+        <td>
+          Mục 1
+        </td>
+        <td>Mục 2</td>
+      </tr>`;
+        for (let i = 0; i < productList.length; i++) {
+          tableString += `<tr>
+        <td>${productList[i]}</td>
+
+        <td>
+          <button style="background-color: rgb(212, 255, 0)" onclick ="editProduct(${i})">Chỉnh sửa</button>
+        </td>
+        <td><button style="background-color: orange" onclick ="deleteProduct(${i})">Xóa</button></td>
+      </tr>`;
+        }
+        tableString += ` </table>`;
+        document.getElementById("display").innerHTML = tableString;
+      }
+
+      displayTable();
+
+      //tạo function add product
+      function addProduct() {
+        let newProduct = document.getElementById("input").value;
+        if (newProduct !== "") {
+          productList.push(newProduct);
+        } else {
+          alert("Mời nhập sản phẩm"); //trường hợp chưa nhập sản phẩm nhưng đã bấm nút add
+        }
+        document.getElementById("input").value = ""; //trả về ô rỗng sau khi đã input
+        displayTable();
+      }
+
+      //tạo function chỉnh sửa
+
+      function editProduct(index) {
+        let productEdit = prompt("Nhập tên sản phẩm mới");
+        if (productEdit) {
+          productList[index] = productEdit;
+          displayTable();
+        }
+      }
+
+      //tạo function xóa
+
+      function deleteProduct(index) {
+        let xoa = confirm(
+          `Bạn chắc chắn muốn xóa sản phẩm ${productList[index]} chứ???`
+        );
+        if (xoa) {
+          productList.splice(index, 1);
+        }
+        displayTable();
+      }
+    </script>
+  </body>
+</html>

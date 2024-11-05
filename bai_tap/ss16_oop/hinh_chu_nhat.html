@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mô tả hình chữ nhật</title>
+  </head>
+  <body>
+    <!-- vẽ canvas -->
+    <canvas id="hinhChuNhat"></canvas>
+
+    <script>
+      //tạo class
+
+      class Rectangle {
+        //thuộc tính
+        constructor(chieuDai, chieuRong) {
+          this.chieuDai = chieuDai;
+          this.chieuRong = chieuRong;
+        }
+
+        //phương thức
+        getDienTich() {
+          return this.chieuDai * this.chieuRong;
+        }
+
+        getChuVi() {
+          return (this.chieuDai + this.chieuRong) * 2;
+        }
+
+        //vẽ canvas
+        draw(canvasId) {
+          const canvas = document.getElementById(canvasId);
+          const ctx = canvas.getContext("2d");
+          ctx.rect(10, 10, this.chieuDai, this.chieuRong);
+          ctx.strokeStyle = "red";
+          ctx.lineWidth = 5;
+          ctx.stroke();
+          ctx.fillStyle = "green";
+          ctx.fill();
+        }
+      }
+
+      //khai báo, khởi tạo
+      const hinhChuNhat = new Rectangle(100, 50);
+
+      //hiển thị hình chữ nhật trên màn hình web
+      hinhChuNhat.draw("hinhChuNhat");
+
+      //thay đổi chiều dài và chiều rộng
+      hinhChuNhat.chieuDai = 200;
+      hinhChuNhat.chieuRong = 100;
+
+      //hiển thị diện tích và chu vi hình chữ nhật
+      console.log(`Diện tích hình chữ nhật là: ${hinhChuNhat.getDienTich()}`);
+      console.log(`Chu vi hình chữ nhật là: ${hinhChuNhat.getChuVi()}`);
+    </script>
+  </body>
+</html>
