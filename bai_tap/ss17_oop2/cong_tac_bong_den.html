@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mô tả công tắc bóng đèn</title>
+  </head>
+  <body>
+    <h1>Tạo lớp mô tả bóng đèn và công tắc</h1>
+    <script>
+      //mô tả lớp bóng đèn
+      class ElectricLamp {
+        constructor() {
+          this.status = false; //ban đầu bóng đèn chưa bật
+        }
+
+        turnOn() {
+          this.status = true;
+          return `Bóng đèn đang bật`;
+        }
+
+        turnOff() {
+          this.status = false;
+          return `Bóng đèn đã tắt`;
+        }
+      }
+
+      //tạo class Switch Button
+
+      class SwitchButton {
+        constructor(status) {
+          this.status = status;
+        }
+
+        connectToLamp(lamp) {
+          this.lamp = lamp;
+        }
+
+        switchOn() {
+          this.status = true;
+          if (this.lamp) {
+            return this.lamp.turnOn();
+          }
+        }
+
+        switchOff() {
+          this.status = false;
+          if (this.lamp) {
+            return this.lamp.turnOff();
+          }
+        }
+      }
+
+      //test nút turnOn turnOff
+      let lamp = new ElectricLamp();
+      let switchStatus = new SwitchButton();
+
+      //kết nối công tắc với bóng đèn
+      switchStatus.connectToLamp(lamp);
+
+      //tạo vòng lặp in kết quả tắt bật bóng đèn 10 lần
+      for (let i = 0; i < 10; i++) {
+        if (i % 2 === 0) {
+          document.write(
+            `Kết quả lần thứ ${i + 1}: ${switchStatus.switchOn()} <br>`
+          );
+        } else {
+          document.write(
+            `Kết quả lần thứ ${i + 1}: ${switchStatus.switchOff()} <br>`
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
