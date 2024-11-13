@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CaseStudy - Bài 5</title>
+</head>
+<body>
+<h1>CASE STUDY_BÀI 5</h1>
+<script>
+
+    function findMaxNumber(n) {
+        if (n.length !== 4 || isNaN(n)) {
+            console.log(-1);
+            return;
+        }
+
+        let max = 0;
+        for (let i = 0; i < n.length; i++) {
+            let newArr = n.slice(0, i).concat(n.slice(i + 1));
+            let temp = parseInt(newArr);
+            if (temp > max) {
+                max = temp;
+            }
+        }
+
+
+        console.log(`Số lớn nhất có 3 chữ số là: ${max} `);
+
+    }
+
+    let n = prompt("Nhập vào tham số bất kỳ");
+    findMaxNumber(n);
+
+</script>
+</body>
+</html>

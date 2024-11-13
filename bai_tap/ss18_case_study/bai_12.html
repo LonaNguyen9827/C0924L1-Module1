@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CaseStudy - Bài 12</title>
+</head>
+<body>
+<h1>CaseStudy - Bài 12</h1>
+<h2>Xây dựng hệ thống quản lý học viên CodeGym</h2>
+
+<button onclick="addStudent()">Thêm mới học viên</button>
+<button onclick="editInfoStudent()">Sửa thông tin học viên</button>
+<button onclick="deleteStudent()">Xóa học viên</button>
+<p id="table"></p>
+
+<script>
+    //Xây dựng hệ thống quản lý học viên
+
+    class Student {
+        constructor(ma, ten, lop, email, ngaySinh) {
+            this.ma = ma;
+            this.ten = ten;
+            this.lop = lop;
+            this.email = email;
+            this.ngaySinh = ngaySinh;
+        }
+    }
+
+    //tạo mảng từ class
+    let student1 = new Student("HV-001", "Nguyễn Văn A", "C1022G1", "nguyenvana@gmail.com", "01/01/2004");
+    let student2 = new Student("HV-002", "Nguyễn Văn B", "C1122G1", "nguyenvanb@gmail.com", "02/02/2004");
+    let student3 = new Student("HV-003", "Nguyễn Thị C", "C1222G1", "nguyenthic@gmail.com", "03/03/2004");
+
+    let studentList = [student1, student2, student3];
+
+    //function showTable
+    function showTable() {
+        let tableString = `<table border="1" style="align-content: center" >
+  <tr>
+    <th>Mã học viên</th>
+    <th>Tên</th>
+    <th>Lớp</th>
+    <th>Email</th>
+    <th>Ngày sinh</th>
+  </tr>`;
+
+        //vòng lặp
+        for (let i = 0; i < studentList.length; i++) {
+            tableString += ` <tr>
+    <td>${studentList[i].ma}</td>
+    <td>${studentList[i].ten}</td>
+    <td>${studentList[i].lop}</td>
+    <td>${studentList[i].email}</td>
+    <td>${studentList[i].ngaySinh}</td>
+  </tr>`;
+        }
+
+        tableString += `</table>`;
+        document.getElementById("table").innerHTML = tableString;
+    }
+
+    showTable();
+
+    //tạo function thêm mới
+    function addStudent() {
+        let newMa = prompt("Nhập mã học viên");
+        let newTen = prompt("Nhập tên học viên");
+        let newLop = prompt("Nhập tên lớp");
+        let newEmail = prompt("Nhập Email");
+        let newNgaySinh = prompt("Nhập ngày sinh");
+
+        if (newMa === "" || newTen === "" || newEmail === "" || newNgaySinh === "" || newLop === "") {
+            alert("Không được để trống thông tin ");
+            return;
+        } else {
+            let newStudent = new Student(newMa, newTen, newLop, newEmail, newNgaySinh);
+            studentList.push(newStudent);
+
+            showTable();
+        }
+
+    }
+
+    //tạo function chỉnh sửa
+    function editInfoStudent() {
+        let findMa = prompt("Nhập mã học viên cần chỉnh sửa");
+        for (let student of studentList) {
+            if (student.ma === findMa) {
+                student.ten = prompt("Nhập tên học viên");
+                student.ma = prompt("Nhập mã học viên");
+                student.lop = prompt("Nhập lớp");
+                student.email = prompt("Nhập email");
+                student.ngaySinh = prompt("Nhập ngày sinh");
+
+                if (student.ten === "" || student.ma === "" || student.lop === "" || student.email === "" || student.ngaySinh === "") {
+                    alert("Không được để trống thông tin ");
+                    return;
+                }
+
+                showTable();
+                return;
+            }
+        }
+        alert("Không tồn tại mã sinh viên");
+    }
+
+    //tạo function xóa
+    function deleteStudent() {
+        let findMa = prompt("Nhập mã học viên cần xóa");
+        let found = false;
+
+        for (let i = 0; i < studentList.length; i++) {
+            if (studentList[i].ma === findMa) {
+                let conf = confirm('Có muốn xóa sinh viên này không?');
+                if (conf) {
+                    studentList.splice(i, 1);
+                    showTable();
+                }
+                found = true;
+                break;
+            }
+
+        }
+
+        if (!found) {
+            alert('Không tìm thấy mã sinh viên');
+        }
+    }
+</script>
+</body>
+</html>

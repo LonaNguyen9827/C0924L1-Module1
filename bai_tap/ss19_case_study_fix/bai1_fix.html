@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Bài 1</h1>
+    <script>
+      //nhập 1 mảng từ bàn phím, nếu không thỏa điều kiện thì nhập lại
+      let n;
+      do {
+        n = prompt(`Nhập độ dài của mảng`);
+      } while (n <= 0 || n > 20 || n % 1 != 0);
+
+      let array = [];
+      for (let i = 0; i < n; i++) {
+        array.push(+prompt(`Nhập phần tử thứ ${i + 1}`));
+      }
+
+      //hiển thị mảng
+      console.log(`Mảng vừa nhập vào là: ${array}`);
+
+      //kiểm tra mảng
+      let check = true;
+      let diff = array[1] - array[0];
+
+      if (diff <= 0 || n < 3) {
+        console.log("NO");
+      } else {
+        for (let i = 2; i < n; i++) {
+          if (array[i] - array[i - 1] !== diff) {
+            check = false;
+            break;
+          }
+        }
+        //trả kết quả
+        if (check) {
+          console.log("OK");
+        } else {
+          console.log("NO");
+        }
+      }
+    </script>
+  </body>
+</html>

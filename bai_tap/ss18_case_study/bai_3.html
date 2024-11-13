@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>CaseStudy - Bài 3</title>
-  </head>
-  <body>
-    <h1>CASE STUDY_BÀI 3</h1>
-    <script>
-      let n = +prompt(`Độ dài của mảng là:`);
-      let array = new Array(n);
-      let count = 0;
-      for (let i = 0; i < array.length; i++) {
-        array[i] = +prompt(`Nhập phần tử thứ ${i + 1}`);
-      }
-      console.log(array);
+</head>
+<body>
+<h1>CASE STUDY_BÀI 3</h1>
+<script>
 
-      if (n > 1) {
+    //nhập 1 mảng từ bàn phím
+    let n;
+    do {
+        n = prompt(`Nhập độ dài của mảng`);
+    } while (n <= 0 || n % 1 !== 0);
+
+    let array = [];
+    for (let i = 0; i < n; i++) {
+        array.push(+prompt(`Nhập phần tử thứ ${i + 1}`));
+    }
+
+    //hiển thị mảng
+    console.log(`Mảng vừa nhập vào là: ${array}`);
+
+    if (n > 1) {
         for (let i = 0; i < Math.floor(n / 2); i++) {
-          if (array[i] === array[n - (i + 1)]) {
-            count++;
-          }
+            if (array[i] === array[n - (i + 1)]) {
+                count++;
+            }
         }
 
         if (count === Math.floor(n / 2)) {
-          console.log(`OK`);
+            console.log(`OK`);
         } else {
-          console.log(`NO`);
+            console.log(`NO`);
         }
-      } else {
+    } else {
         console.log(`Độ dài mảng không thoả điều kiện`);
-      }
-    </script>
-  </body>
+    }
+</script>
+</body>
 </html>

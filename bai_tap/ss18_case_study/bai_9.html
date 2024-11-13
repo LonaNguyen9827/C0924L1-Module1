@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CaseStudy - Bài 9</title>
+</head>
+<body>
+<h1>CaseStudy - Bài 9</h1>
+<script>
+
+    let n;
+    do {
+        n = prompt(`Nhập độ dài của mảng`);
+    } while (n <= 0 || n % 2 !== 0 || isNaN(n))
+
+    let array = [];
+
+    for (let i = 0; i < n; i++) {
+        array.push(+prompt(`Nhập phần tử thứ ${i + 1}`));
+    }
+
+    console.log(`Mảng vừa nhập là: ${array}`);
+
+    //kiểm tra mảng
+
+    let count = 0;
+    for (let i = 0; i < array.length; i += 2) {
+        if (array[i] < array[i + 1]) {
+            count++;
+        }
+    }
+
+    if (count === n / 2) {
+        console.log("OK");
+    } else {
+        console.log("NO");
+    }
+</script>
+</body>
+</html>
