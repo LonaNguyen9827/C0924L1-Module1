@@ -1,50 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>CaseStudy - Bài 8</title>
 </head>
 <body>
 <h1>CaseStudy - Bài 8</h1>
-
 <script>
-
-    function isPrime(num) {
-        if (num <= 1) {
-            return false;
-        }
-        if (num === 2) {
-            return true;
-        }
-
-        for (let i = 2; i < Math.sqrt(num); i++) {
-            if (num % i === 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-
-    function isIntArray(arr) {
-
-        for (let i = 0; i < arr.length; i++) {
-            if (!isPrime(arr[i])) {
-                console.log("FALSE");
-                return;
-            }
-        }
-        console.log("TRUE");
-    }
-
     //tham số bất kỳ
     let array1 = [11, 3, 2, 7];
     let array2 = [11, 3, 2, 6, 4, 8, 7];
+    let array3 = [-11, 3, 2, -3, 7];
 
     //gọi hàm
-    isIntArray(array1);
-    isIntArray(array2);
+    document.write(`Kết quả kiểm tra mảng 1: ${checkPrimeArray(array1)} <br>`);
+    document.write(`Kết quả kiểm tra mảng 2: ${checkPrimeArray(array2)} <br>`);
+    document.write(`Kết quả kiểm tra mảng 3: ${checkPrimeArray(array3)} <br>`);
+
+    function checkPrimeArray(array) {
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            let num = array[i];
+            if (num <= 1) {
+                return `FALSE`;
+            }
+            if (num === 2) {
+                count++;
+            }
+            if (num > 2) {
+                for (let j = 2; j < Math.sqrt(num); j++) {
+                    if (num % j === 0) {
+                        return `FALSE`;
+                    } else {
+                        count++;
+                    }
+                }
+            }
+        }
+        if (count === array.length) {
+            return `TRUE`;
+        }
+    }
 </script>
 </body>
 </html>

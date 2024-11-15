@@ -8,12 +8,11 @@
 <body>
 <h1>CASE STUDY_BÀI 3</h1>
 <script>
-
     //nhập 1 mảng từ bàn phím
     let n;
     do {
         n = prompt(`Nhập độ dài của mảng`);
-    } while (n <= 0 || n % 1 !== 0);
+    } while (n <= 0 || n % 1 !== 0 || n < 3);
 
     let array = [];
     for (let i = 0; i < n; i++) {
@@ -21,22 +20,20 @@
     }
 
     //hiển thị mảng
-    console.log(`Mảng vừa nhập vào là: ${array}`);
+    alert(`Mảng vừa nhập vào là: ${array}`);
 
-    if (n > 1) {
-        for (let i = 0; i < Math.floor(n / 2); i++) {
-            if (array[i] === array[n - (i + 1)]) {
-                count++;
-            }
+    //kiểm tra mảng
+    let count = 0;
+    for (let i = 0; i < Math.floor(n / 2); i++) {
+        if (array[i] === array[n - (i + 1)]) {
+            count++;
         }
+    }
 
-        if (count === Math.floor(n / 2)) {
-            console.log(`OK`);
-        } else {
-            console.log(`NO`);
-        }
+    if (count === Math.floor(n / 2)) {
+        alert(`OK: Mảng đối xứng`);
     } else {
-        console.log(`Độ dài mảng không thoả điều kiện`);
+        alert(`NO: Mảng không đối xứng`);
     }
 </script>
 </body>

@@ -7,36 +7,66 @@
 </head>
 <body>
 <h1>CASE STUDY_BÀI 4</h1>
+
 <script>
-    function find(x) {
-        //b1: kiểm tra chuỗi có chứa "/", gán giá trị tử số và mẫu số
-        if (x.includes("/")) {
-            const array = x.split("/");
-            tuSo = Number(array[0]);
-            mauSo = Number(array[1]);
+    //nhập chuỗi bất kỳ:
+    let string1 = prompt("Nhập chuỗi bất kỳ để kiểm tra");
+    //gọi hàm:
+    alert(find(string1));
+
+    function find(chuoi) {
+        if (!chuoi.includes("/")) {
+            return `Chuỗi vừa nhập: ${chuoi} không phải là phân số`;
         }
-        //b2: kiểm tra tử số và mẫu số là số và mẫu số phải !0
-        if (!isNaN(tuSo) && !isNaN(mauSo) && mauSo !== 0) {
-            if (tuSo !== mauSo && tuSo !== 0) {
-                //trường hợp tử số khác mẫu số => tìm ước chung lớn nhất
-                let max = tuSo > mauSo ? tuSo : mauSo;
-                let min = tuSo < mauSo ? tuSo : mauSo;
-                let uoc = max % min;
-                if (uoc !== 0) {
-                    return `${tuSo / uoc} / ${mauSo / uoc}`;
-                } else if (mauSo / min !== 1) {
-                    return `${tuSo / min} / ${mauSo / min}`;
-                } else {
-                    return `${tuSo / mauSo}`;
+
+        let mang = chuoi.split("/");
+        if (mang.length !== 2) {
+            return `Chuỗi vừa nhập: ${chuoi} không phải là phân số`;
+        }
+
+        let tuSo = mang[0];
+        let mauSo = mang[1];
+        //kiểm tra tử và mẫu phải là số nguyên
+        if (tuSo % 1 !== 0 || mauSo % 1 !== 0) {
+            return `Chuỗi vừa nhập: ${chuoi} không phải là phân số`;
+        }
+
+        //kiểm tra mẫu số phải !0
+        if (mauSo === 0) {
+            return `Chuỗi vừa nhập: ${chuoi} không phải là phân số`;
+        }
+
+        //tìm ước chung lớn nhất
+        let uoc = 1;
+        let min = Math.min(tuSo, mauSo); //so sánh tử số và mẫu số tìm ra giá trị nhỏ nhất
+
+        if (min >= 0) {
+            for (let i = min; i >= 1; i--) {
+                if ((tuSo % i === 0) & (mauSo % i === 0)) {
+                    uoc = i;
+                    break;
                 }
             }
-            return `${tuSo / mauSo}`;
+        } else if (min < 0) {
+            for (let i = min; i <= 1; i++) {
+                if ((tuSo % i === 0) & (mauSo % i === 0)) {
+                    uoc = Math.abs(i); // chuyển về trị tuyệt đối để khi chia tử hoặc mẫu cho ước về đúng định dạng -a/b
+                    break;
+                }
+            }
         }
-        return `Không phải là phân số`;
-    }
 
-    let x = prompt("Nhập tham số (x) bất kỳ để kiểm tra");
-    console.log(find(x));
+        //rút gọn tử và mẫu
+        tuSo /= uoc;
+        mauSo /= uoc;
+
+        //trả kết quả
+        if (tuSo === 0 || mauSo === 1) {
+            return `Phân số tối giản là ${tuSo / mauSo} `;
+        } else {
+            return `Phân số tối giản là: ${tuSo / uoc} / ${mauSo / uoc}`;
+        }
+    }
 </script>
 </body>
 </html>

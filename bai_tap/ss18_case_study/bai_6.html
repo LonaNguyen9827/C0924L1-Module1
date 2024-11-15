@@ -1,13 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>CaseStudy - Bài 6</title>
 </head>
 <body>
 <h1>CASE STUDY_BÀI 6</h1>
 <script>
+    //cho tham số bất kỳ
+    let mang1 = [2, 4, 6, 8];
+    let mang2 = [1, 3, 5, 7];
+    let mang3 = [2, 3, 6, 7];
+
+    //gọi hàm
+    alert(`Kết quả kiểm tra mảng 1: ${kiemTraMang(mang1)}`);
+    alert(`Kết quả kiểm tra mảng 2: ${kiemTraMang(mang2)}`);
+    alert(`Kết quả kiểm tra mảng 3: ${kiemTraMang(mang3)}`);
 
     function kiemTraMang(mang) {
         let demChan = 0;
@@ -30,16 +39,6 @@
             return -1;
         }
     }
-
-    let mang1 = [2, 4, 6, 8];
-    let mang2 = [1, 3, 5, 7];
-    let mang3 = [2, 3, 6, 7];
-
-    //gọi hàm
-    alert(`Kết quả kiểm tra mảng 1: ${kiemTraMang(mang1)}`);
-    alert(`Kết quả kiểm tra mảng 2: ${kiemTraMang(mang2)}`);
-    alert(`Kết quả kiểm tra mảng 3: ${kiemTraMang(mang3)}`);
-
 </script>
 </body>
 </html>

@@ -8,30 +8,35 @@
 <body>
 <h1>CASE STUDY_BÀI 5</h1>
 <script>
+    //cho tham số bất kỳ
+    let number1 = 923;
+    let number2 = 1923;
+    let number3 = 9371;
+    let number4 = "12a4";
 
-    function findMaxNumber(n) {
-        if (n.length !== 4 || isNaN(n)) {
-            console.log(-1);
-            return;
+    //gọi hàm kiểm tra
+    document.write(`${findMaxNumber(number1)} <br>`);
+    document.write(`${findMaxNumber(number2)} <br>`);
+    document.write(`${findMaxNumber(number3)} <br>`);
+    document.write(`${findMaxNumber(number4)} <br>`);
+
+    function findMaxNumber(number) {
+        let numberString = number.toString();
+
+        if (numberString.length !== 4 || isNaN(number)) {
+            return `-1`;
         }
 
         let max = 0;
-        for (let i = 0; i < n.length; i++) {
-            let newArr = n.slice(0, i).concat(n.slice(i + 1));
-            let temp = parseInt(newArr);
-            if (temp > max) {
-                max = temp;
+
+        for (let element of numberString) {
+            let newString = Number(numberString.split(element).join(""));
+            if (newString > max) {
+                max = newString;
             }
         }
-
-
-        console.log(`Số lớn nhất có 3 chữ số là: ${max} `);
-
+        return `Số lớn nhất có 3 chữ số là: ${max} `;
     }
-
-    let n = prompt("Nhập vào tham số bất kỳ");
-    findMaxNumber(n);
-
 </script>
 </body>
 </html>
