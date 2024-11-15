@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //bài tập thêm cuối Module
+      //nhập mảng từ bàn phím n <=50
+      //hiển thị mảng
+      //hiển thị avr của các phần tử chia hết cho 5
+      //và có index chia hết cho 3
+
+      //làm nhập mảng trc
+      //   let n;
+      //   do {
+      //     n = +prompt(`Độ dài của mảng là:`);
+      //   } while (n <= 0 || n > 50 || n % 1 !== 0);
+
+      //   let array = [];
+      //   for (let i = 0; i < n; i++) {
+      //     3;
+      //     array.push(prompt(`Nhập phần tử thứ ${i + 1}`));
+      //   }
+
+      //hiển thị mảng
+      //   alert(`Mảng vừa nhập vào là: ${array}`);
+
+      let array = [5, 10, 15, 25, 30, 6, 9, 3, 1, 12];
+      console.log(array.length);
+
+      //kiểm tra các phần tử chia hết cho 5
+      let newArray = [];
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] % 5 === 0) {
+          newArray.push(array[i]);
+        }
+      }
+      //kiểm tra các phần tử có index chia hết cho 3
+      let newArray2 = [];
+      for (let i = 0; i < array.length; i++) {
+        if (i % 3 === 0) {
+          newArray2.push(array[i]);
+        }
+      }
+
+      //nối 2 mảng vừa tìm được bằng concat
+      //   let newArray3 = newArray.concat(newArray2);
+      //tính trung bình các phần tử
+      console.log(array);
+      console.log(newArray);
+      console.log(newArray2);
+      //   console.log(newArray3);
+    </script>
+  </body>
+</html>
