@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // gọi hàm kiểm tra
+      let number1 = 6;
+      let number2 = 9;
+      let number3 = -6;
+
+      alert(`Kết quả kiểm tra số hoàn hảo: ${checkPerfectNumber(number1)}`);
+      alert(`Kết quả kiểm tra số hoàn hảo: ${checkPerfectNumber(number2)}`);
+      alert(`Kết quả kiểm tra số hoàn hảo: ${checkPerfectNumber(number3)}`);
+
+      function checkPerfectNumber(number) {
+        if (number < 0) {
+          return false;
+        }
+
+        let sum = 0;
+        for (let i = 0; i < number; i++) {
+          if (number % i === 0) {
+            sum += i;
+          }
+        }
+
+        if (sum === number) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

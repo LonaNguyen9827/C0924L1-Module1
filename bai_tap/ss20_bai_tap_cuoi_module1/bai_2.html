@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let string = prompt(`Mời nhập 1 chuỗi bất kỳ`);
+      alert(`chuỗi vừa nhập vào là: ${string}`);
+      alert(checkString(string));
+
+      //hàm kiểm tra
+      function isChar(char) {
+        if (char >= "a" && char <= "z") {
+          return true;
+        } else if (char >= "A" && char <= "Z") {
+          return true;
+        } else if (char >= "0" && char <= "9") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      //tạo function duyệt chuỗi
+      function checkString() {
+        let arr = [string[0]];
+        let newStr1;
+        let check = false;
+        for (let i = 0; i < string.length; i++) {
+          let char = string[i];
+          if (!isChar(char)) {
+            arr.push(string[i + 1]);
+            newStr1 = arr.join("").toUpperCase();
+            check = true;
+          }
+        }
+
+        if (!check) {
+          return `Chuỗi nhập vào là 1 từ duy nhất`;
+        } else {
+          return `Từ viết tắt của  chuỗi là: ${newStr1}`;
+        }
+      }
+    </script>
+  </body>
+</html>

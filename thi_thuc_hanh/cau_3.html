@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //gọi hàm kiểm tra
+      let string = "01/2020";
+      let string1 = "02/2020";
+      let string2 = "04/2024";
+      let string3 = "02/2023";
+
+      alert(`Số ngày trong ${string} là: ${checkDate(string)} ngày`);
+      alert(`Số ngày trong ${string1} là: ${checkDate(string1)} ngày`);
+      alert(`Số ngày trong ${string2} là: ${checkDate(string2)} ngày`);
+      alert(`Số ngày trong ${string3} là: ${checkDate(string3)} ngày`);
+
+      function checkDate(string) {
+        if (!string.includes("/")) {
+          return false;
+        }
+
+        let array = string.split("/");
+        if (array.length !== 2 || array.includes("")) {
+          return false;
+        }
+
+        let month = Number(array[0]);
+        let year = Number(array[1]);
+
+        //gọi hàm kiểm tra năm => ngày trong tháng 2
+        let day;
+        if (checkYear(year)) {
+          day = 29;
+        } else {
+          day = 28;
+        }
+
+        switch (month) {
+          case 1:
+          case 3:
+          case 5:
+          case 7:
+          case 8:
+          case 10:
+          case 12:
+            return 31;
+            break;
+          case 4:
+          case 6:
+          case 9:
+          case 11:
+            return 30;
+            break;
+          default:
+            return day;
+        }
+      }
+
+      function checkYear(year) {
+        if (year % 4 === 0) {
+          if (year % 100 === 0) {
+            return year % 400 === 0;
+          }
+          return true;
+        } else {
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

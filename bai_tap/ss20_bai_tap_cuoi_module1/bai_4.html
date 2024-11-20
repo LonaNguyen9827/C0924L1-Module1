@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Ứng dụng quản lý danh sách máy tính</h2>
+    <button onclick="addProduct()">Thêm sản phẩm mới</button>
+    <p id="result"></p>
+    <script>
+      //tạo class
+      class MayTinh {
+        //thuộc tính
+        constructor(ma, ten, hang, giaBan) {
+          this.ma = ma;
+          this.ten = ten;
+          this.hang = hang;
+          this.giaBan = giaBan;
+        }
+
+        //phương thức
+        getMa() {
+          return this.ma;
+        }
+        setMa(ma) {
+          this.ma = ma;
+        }
+        getTen() {
+          return this.ten;
+        }
+        setTen(ten) {
+          this.ten = ten;
+        }
+        getHang() {
+          return this.hang;
+        }
+        setHang(hang) {
+          this.hang = hang;
+        }
+        getGiaBan() {
+          return this.giaBan;
+        }
+        setGiaBan(giaBan) {
+          this.giaBan = giaBan;
+        }
+
+        toString() {
+          return `${this.ma} - ${this.ten} - ${this.hang} - ${this.giaBan} `;
+        }
+      }
+
+      let pro1 = new MayTinh(1, "Hu1", "Huwei", 200);
+      let pro2 = new MayTinh(2, "Hu2", "Huwei", 400);
+      let pro3 = new MayTinh(3, "Hu3", "Huwei", 500);
+      let productList = [pro1, pro2, pro3];
+
+      function showTable() {
+        let tableString = `<table border="1", style="text-align: center">
+          <tr>
+        <th>Mã máy tính</th>
+        <th>Tên máy tính</th>
+        <th>Hãng máy tính</th>
+        <th>Giá bán</th>
+      </tr>`;
+
+        for (let i = 0; i < productList.length; i++) {
+          tableString += ` <tr>
+        <td>${productList[i].ma}</td>
+        <td>${productList[i].ten}</td>
+        <td>${productList[i].hang}</td>
+        <td>${productList[i].giaBan}</td>
+      </tr>`;
+        }
+        tableString += ` </table>`;
+
+        document.getElementById("result").innerHTML = tableString;
+      }
+      showTable();
+
+      function addProduct() {
+        let newMa = prompt(`Nhập mã sản phẩm`);
+        let newTen = prompt(`Nhập tên sản phẩm`);
+        let newHang = prompt(`Nhập hãng sản phẩm`);
+        let newGiaBan = prompt(`Nhập giá sản phẩm`);
+        let newProduct = new MayTinh(newMa, newTen, newHang, newGiaBan);
+        productList.push(newProduct);
+        showTable();
+      }
+    </script>
+  </body>
+</html>

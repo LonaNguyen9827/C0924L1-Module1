@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //gọi hàm
+      let number = [1, 5, 6, 13, 9, 12, 8, 0, 5, 1];
+      console.log(checkArray(number));
+
+      //function kiểm tra số nguyên dương
+      function isInteger(number) {
+        if (number > 0 && number % 1 === 0) {
+          return true;
+        }
+        return false;
+      }
+
+      //function kiểm tra số Fibonacci
+      function isFibonacci(number) {
+        let check1 = 5 * Math.pow(number, 2) + 4;
+        let check2 = 5 * Math.pow(number, 2) - 4;
+        if (number < 0) {
+          return false;
+        }
+        if (number === 0 || number === 1) {
+          return true;
+        }
+
+        if (number >= 2) {
+          if (isInteger(Math.sqrt(check1)) || isInteger(Math.sqrt(check2))) {
+            return true;
+          }
+          return false;
+        }
+        return false;
+      }
+
+      function checkArray(array) {
+        let newArray = [];
+        for (let i = 0; i < array.length; i++) {
+          if (isFibonacci(array[i])) {
+            newArray.push(array[i]);
+          }
+        }
+        newArray = newArray.sort(function (a, b) {
+          return a - b;
+        });
+        return newArray;
+      }
+    </script>
+  </body>
+</html>
